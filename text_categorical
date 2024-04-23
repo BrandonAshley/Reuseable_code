@@ -10,3 +10,11 @@ from sklearn.preprocessing import OneHotEncoder
 encoder =OneHotEncoder()
 housing_cat_1hot= encoder.fit_transform(housing_cat_encoded.reshape(-1,1))
 housing_cat_1hot
+housing_cat_1hot.toarray()
+
+
+#does both in one shot
+from sklearn.preprocessing import LabelBinarizer
+encoder = LabelBinarizer()
+housing_cat_1hot=encoder.fit_transform(housing_cat)
+housing_cat_1hot
