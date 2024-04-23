@@ -1,3 +1,5 @@
+#Normal train test split
+
 import numpy as np
 np.random.seed(42)
 
