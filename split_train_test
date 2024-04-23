@@ -1,4 +1,5 @@
 import numpy as np
+np.random.seed(42)
 
 def split_train_test(data,test_ratio):
     shuffled_indices=np.random.permutation(len(data))
