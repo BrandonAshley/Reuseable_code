@@ -1,0 +1,12 @@
+from sklearn.preprocessing import LabelEncoder
+encoder=LabelEncoder()
+housing_cat= housing["ocean_proximity"]
+housing_cat_encoded=encoder.fit_transform(housing_cat)
+print(housing_cat_encoded)
+print(encoder.classes_)
+
+#onehot to make sure the model understands the difference between 1/2 and it there or not p112 van boek
+from sklearn.preprocessing import OneHotEncoder
+encoder =OneHotEncoder()
+housing_cat_1hot= encoder.fit_transform(housing_cat_encoded.reshape(-1,1))
+housing_cat_1hot
