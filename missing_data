@@ -1,0 +1,18 @@
+#save median of values your drop to change test set missing values to this data
+
+housing.dropna(subset=["total_bedrooms"]) # option 1
+housing.drop("total_bedrooms", axis=1) # option 2
+median = housing["total_bedrooms"].median()
+housing["total_bedrooms"].fillna(median) # option 3
+
+#other method
+from sklearn.impute import SimpleImputer
+imputer= SimpleImputer(missing_values=np.nan, strategy= "median")
+
+housing_num= housing.drop("ocean_proximity",axis=1) #object columns
+
+imputer.fit(housing_num)
+imputer.statistics_
+housing_num.median().values
+X=imputer.transform(housing_num)
+housing_tr=pd.DataFrame(X, columns=housing_num.columns)
