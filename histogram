@@ -1,0 +1,6 @@
+import matplotlib as plt
+
+
+def create_histogram(data=data)
+  data.hist(bins=50, figsize=(20,15))
+  #plt.show()
