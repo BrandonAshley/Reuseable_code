@@ -13,3 +13,20 @@ housing_predictions= lin_reg.predict(housing_prepared)
 lin_mse=mean_squared_error(housing_labels , housing_predictions)
 lin_rmse = np.sqrt(lin_mse)
 lin_rmse
+
+
+------Cross validation
+
+from sklearn.model_selection import cross_val_score
+
+lin_scores = cross_val_score(lin_reg, housing_prepared, housing_labels,
+                            scoring= "neg_mean_squared_error", cv=10)
+
+lin_rmse_scores =  np.sqrt(-lin_scores)
+
+def display_scores(scores):
+    print("Scores:  ",scores)
+    print("Mean:    ",scores.mean())
+    print("Std:     ",scores.std())
+    
+display_scores(lin_rmse_scores)
