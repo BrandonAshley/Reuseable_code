@@ -1,0 +1,8 @@
+feature_importance = grid_search.best_estimator_.feature_importances_
+feature_importance
+
+
+extra_attribs= ['rooms_per_hhold', "pop_per_hhold", 'bedrooms_per_room']
+cat_one_hot_attribs=list(encoder.classes_)
+attributes = num_attribs + extra_attribs +cat_one_hot_attribs
+sorted(zip(feature_importance, attributes), reverse=True)
