@@ -1,0 +1,21 @@
+threshold = 200000
+y_some_digit_pred = (y_scores > threshold)
+y_some_digit_pred
+
+y_scores = cross_val_predict(sgd_clf, X_train, y_train_5, cv=3,
+method="decision_function")
+
+from sklearn.metrics import precision_recall_curve
+
+precisions, recalls, thresholds = precision_recall_curve(y_train_5, y_scores)
+
+
+def plot_precision_recall_vs_threshold(precisions, recalls, thresholds):
+    plt.plot(thresholds,precisions[:-1], "b--", label="Precision")
+    plt.plot(thresholds,recalls[:-1], "g-", label="Recall")
+    plt.xlabel("Threshold")
+    plt.legend(loc="upper left")
+    plt.ylim([0,1])
+
+plot_precision_recall_vs_threshold(precisions,recalls, thresholds)
+plt.show()
