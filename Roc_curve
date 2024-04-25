@@ -10,3 +10,9 @@ def plot_roc_curve(fpr, tpr, label=None):
 
 plot_roc_curve(fpr, tpr)
 plt.show()
+
+
+----
+
+from sklearn.metrics import roc_auc_score
+roc_auc_score(y_train_5, y_scores)
