@@ -1,0 +1,12 @@
+from sklearn.decomposition import PCA
+
+pca= PCA(n_components=2)
+X2D= pca.fit_transform(X)
+print(pca.explained_variance_ratio_)
+
+pca= PCA(n_components=0.95)
+X_reduced=pca.fit_transform(X)
+
+pca= PCA(n_components=154)
+X_mnist_reduced = pca.fit_transform(X)
+X_mnist_recovered = pca.inverse_transform(X_mnist_reduced)
