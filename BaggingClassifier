@@ -14,3 +14,5 @@ bag_clf = BaggingClassifier(
     bootstrap=True, n_jobs=-1, oob_score=True)
 bag_clf.fit(X_train, y_train)
 bag_clf.oob_score_
+
+bag_clf.oob_decision_function_
